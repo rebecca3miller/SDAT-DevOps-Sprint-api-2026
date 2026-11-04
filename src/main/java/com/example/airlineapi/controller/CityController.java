@@ -19,4 +19,9 @@ public class CityController {
     public List<City> getAllCities() {
         return (List<City>) repo.findAll();
     }
+
+    @PostMapping("/city")
+    public void createCity(@RequestBody City city) {
+        repo.save(city);
+    }
 }

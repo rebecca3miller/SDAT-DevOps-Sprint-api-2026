@@ -2,6 +2,8 @@ package com.example.airlineapi.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Aircraft {
 
@@ -12,6 +14,12 @@ public class Aircraft {
     private String type;
     private String airlineName;
     private int numberOfPassengers;
+
+    @ManyToMany(mappedBy = "aircraft")
+    private List<Passenger> passengers;
+
+    @ManyToMany
+    private List<Airport> airports;
 
     public Aircraft() {
     }
@@ -46,6 +54,22 @@ public class Aircraft {
 
     public void setNumberOfPassengers(int numberOfPassengers) {
         this.numberOfPassengers = numberOfPassengers;
+    }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
+    public List<Airport> getAirports() {
+        return airports;
+    }
+
+    public void setAirports(List<Airport> airports) {
+        this.airports = airports;
     }
 
 }

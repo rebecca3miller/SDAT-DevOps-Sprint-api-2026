@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.util.List;
+
 @Entity
 public class Airport {
 
@@ -18,6 +20,9 @@ public class Airport {
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
+
+    @ManyToMany(mappedBy = "airports")
+    private List<Aircraft> aircraft;
 
     public Airport() {
     }
@@ -52,5 +57,13 @@ public class Airport {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public List<Aircraft> getAircraft() {
+        return aircraft;
+    }
+
+    public void setAircraft(List<Aircraft> aircraft) {
+        this.aircraft = aircraft;
     }
 }

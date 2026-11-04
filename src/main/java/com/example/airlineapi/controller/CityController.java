@@ -45,4 +45,16 @@ public class CityController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "City not found");
         }
     }
+
+    @DeleteMapping("/city/{id}")
+    public void deleteCity(@PathVariable Long id) {
+
+        Optional<City> returnValue = repo.findById(id);
+
+        if (returnValue.isPresent()) {
+            repo.deleteById(id);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "City not found");
+        }
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.airlineapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Airport {
@@ -12,6 +14,7 @@ public class Airport {
     private String name;
     private String code;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;

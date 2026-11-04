@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class City {
@@ -18,6 +19,7 @@ public class City {
     private String state;
     private int population;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "city")
     private List<Airport> airports;
 

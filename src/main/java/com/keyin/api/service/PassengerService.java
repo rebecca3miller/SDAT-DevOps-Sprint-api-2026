@@ -34,7 +34,13 @@ public class PassengerService {
         if (passenger != null) {
             passenger.setFirstName(passengerDetails.getFirstName());
             passenger.setLastName(passengerDetails.getLastName());
-            passenger.setEmail(passengerDetails.getEmail());
+            passenger.setPhoneNumber(passengerDetails.getPhoneNumber());
+            if (passengerDetails.getCity() != null) {
+                passenger.setCity(passengerDetails.getCity());
+            }
+            if (passengerDetails.getAircraft() != null) {
+                passenger.setAircraft(passengerDetails.getAircraft());
+            }
             return passengerRepository.save(passenger);
         }
         return null;
@@ -43,6 +49,26 @@ public class PassengerService {
     // Deletes the passenger with the given ID.
     public void deletePassenger(Long id) {
         passengerRepository.deleteById(id);
+    }
+
+    // Retrieves the aircraft a passenger has flown on, or returns null if the passenger does not exist.
+    public List<Aircraft> getAircraftByPassengerId(Long id) {
+        Passenger passenger = passengerRepository.findById(id).orElse(null);
+        if (passenger == null) {
+            return null;
+        }
+        return passenger.getAircraft();
+    }
+
+    // Retrieves the distinct airports served by aircraft that passengers have flown on.
+    public List<Airport> getAirportsUsedByPassengers() {
+        return passengerRepository.findAll().stream()
+                .filter(passenger -> passenger.getAircraft() != null)
+                .flatMap(passenger -> passenger.getAircraft().stream())
+                .filter(aircraft -> aircraft.getAirports() != null)
+                .flatMap(aircraft -> aircraft.getAirports().stream())
+                .distinct()
+                .toList();
     }
 
     public Page<Passenger> getPassengers(Pageable pageable) {

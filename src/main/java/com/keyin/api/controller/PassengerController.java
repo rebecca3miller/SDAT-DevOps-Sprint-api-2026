@@ -57,8 +57,7 @@ public class PassengerController {
     }
 
     @GetMapping("/passengers/paged")
-    public Page<Passenger> getPassengers(@RequestParam(defaultValue = "0") int page,
-                                           @RequestParam(defaultValue = "10") int size) {
-        return passengerService.getPassengers(page, size);
+    public Page<Passenger> getPassengers(Pageable pageable) {
+        return passengerService.getPassengers(pageable);
     }
 }

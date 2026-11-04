@@ -1,6 +1,8 @@
 package com.keyin.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,5 +48,10 @@ public class AircraftController {
     @GetMapping("/aircraft/{id}/airports")
     public List<Airport> getAirportsByAircraftId(@PathVariable Long id) {
         return aircraftService.getAirportsByAircraftId(id);
+    }
+
+    @GetMapping("/aircraft/paged")
+    public Page<Aircraft> getAircraft(Pageable pageable) {
+        return aircraftService.getAircraft(pageable);
     }
 }

@@ -34,12 +34,21 @@ public class CityService {
             return null;
         }
 
-        BeanUtils.copyProperties(cityDetails, city, "id");
+        BeanUtils.copyProperties(cityDetails, city, "id", "airports");
         return cityRepository.save(city);
     }
 
     // Deletes the city with the given ID.
     public void deleteCity(Long id) {
         cityRepository.deleteById(id);
+    }
+
+    // Retrieves the airports in a city, or returns null if the city does not exist.
+    public List<Airport> getAirportsByCityId(Long id) {
+        City city = cityRepository.findById(id).orElse(null);
+        if (city == null) {
+            return null;
+        }
+        return city.getAirports();
     }
 }

@@ -34,7 +34,7 @@ public class AirportService {
             return null;
         }
 
-        BeanUtils.copyProperties(airportDetails, airport, "id");
+        BeanUtils.copyProperties(airportDetails, airport, "id", "aircraft");
         return airportRepository.save(airport);
     }
 

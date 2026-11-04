@@ -36,13 +36,22 @@ public class AircraftService {
             return null;
         }
 
-        BeanUtils.copyProperties(aircraftDetails, aircraft, "id");
+        BeanUtils.copyProperties(aircraftDetails, aircraft, "id", "passengers");
         return aircraftRepository.save(aircraft);
     }
 
     // Deletes the aircraft with the given ID.
     public void deleteAircraft(Long id) {
         aircraftRepository.deleteById(id);
+    }
+
+    // Retrieves the airports an aircraft operates out of, or returns null if it does not exist.
+    public List<Airport> getAirportsByAircraftId(Long id) {
+        Aircraft aircraft = aircraftRepository.findById(id).orElse(null);
+        if (aircraft == null) {
+            return null;
+        }
+        return aircraft.getAirports();
     }
 
     public Page<Aircraft> getAircraft(Pageable pageable) {

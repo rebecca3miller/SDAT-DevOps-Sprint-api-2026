@@ -13,6 +13,10 @@ public class Passenger {
     private String lastName;
     private String phoneNumber;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
     public Passenger() {
     }
 
@@ -46,6 +50,14 @@ public class Passenger {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 
 }

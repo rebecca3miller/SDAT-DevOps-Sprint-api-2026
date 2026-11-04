@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class City {
@@ -15,6 +17,12 @@ public class City {
     private String name;
     private String state;
     private int population;
+
+    @OneToMany(mappedBy = "city")
+    private List<Airport> airports;
+
+    public City() {
+    }
 
     public Long getId() {
         return id;

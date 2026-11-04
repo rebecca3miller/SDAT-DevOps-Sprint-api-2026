@@ -1,9 +1,6 @@
 package com.example.airlineapi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Airport {
@@ -14,6 +11,13 @@ public class Airport {
 
     private String name;
     private String code;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
+    public Airport() {
+    }
 
     public Long getId (){
         return id;

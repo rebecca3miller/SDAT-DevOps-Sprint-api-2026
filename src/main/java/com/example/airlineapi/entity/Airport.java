@@ -42,4 +42,12 @@ public class Airport {
     public void setCode(String code) {
         this.code = code;
     }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }

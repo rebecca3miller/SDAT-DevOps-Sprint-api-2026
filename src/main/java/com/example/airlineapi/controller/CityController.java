@@ -14,4 +14,9 @@ public class CityController {
 
     @Autowired
     private CityRepository repo;
+
+    @GetMapping("/cities")
+    public List<City> getAllCities() {
+        return (List<City>) repo.findAll();
+    }
 }

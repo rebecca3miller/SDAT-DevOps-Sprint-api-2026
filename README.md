@@ -1,1 +1,0 @@
-# SDAT-DevOps-Sprint-2026

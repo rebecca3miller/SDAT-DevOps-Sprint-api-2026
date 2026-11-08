@@ -1,5 +1,6 @@
-package com.keyin.api.service;
+package com.keyin.airlineapi.aircraft;
 
+import com.keyin.airlineapi.airport.Airport;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.beans.BeanUtils;

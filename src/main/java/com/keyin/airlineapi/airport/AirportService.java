@@ -1,4 +1,4 @@
-package com.keyin.api.service;
+package com.keyin.airlineapi.airport;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

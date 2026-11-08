@@ -1,5 +1,6 @@
-package com.keyin.api.controller;
+package com.keyin.airlineapi.aircraft;
 
+import com.keyin.airlineapi.airport.Airport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

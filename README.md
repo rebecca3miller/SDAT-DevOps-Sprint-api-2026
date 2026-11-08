@@ -135,7 +135,6 @@ The application uses REST endpoints to manage information.
 ### Confirmed GET Endpoints
 
 | Method | Endpoint | Description |
-
 |---|---|---|
 | GET | `/cities` | Retrieves all cities |
 | GET | `/airports` | Retrieves all airports |

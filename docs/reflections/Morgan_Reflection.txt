@@ -1,0 +1,3 @@
+Morgan's reflection
+
+my responsiblites within our group were mostly to do with the Cli, and not the Api. during the time I spent working on the Cli I thought about a few things I should've done differently, like managing my time a lot better. Throughout the time we had to complete this project I got distracted by many things, which ment late nights near the end and early mornings to finally clue everything up. I think time management is the only thing id change, but in terms of the Cli its self it was pretty fun to figure out how it all worked. when I actually got my first build success message from Maven, I was pretty happy after many many tries. Overall I enjoyed the project and challenge of everything and had a decent amount of fun while doing so.

@@ -1,6 +1,5 @@
-package com.example.airlineapi.repository;
+package com.keyin.airlineapi.aircraft;
 
-import com.example.airlineapi.entity.Aircraft;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AircraftRepository extends JpaRepository<Aircraft, Long> {

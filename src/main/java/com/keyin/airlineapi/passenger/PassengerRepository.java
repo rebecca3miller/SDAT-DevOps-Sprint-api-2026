@@ -1,6 +1,5 @@
-package com.example.airlineapi.repository;
+package com.keyin.airlineapi.passenger;
 
-import com.example.airlineapi.entity.Passenger;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PassengerRepository extends JpaRepository<Passenger, Long> {

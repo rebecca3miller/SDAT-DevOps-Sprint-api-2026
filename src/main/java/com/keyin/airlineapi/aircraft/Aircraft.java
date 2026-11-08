@@ -1,6 +1,10 @@
-package com.example.airlineapi.entity;
+package com.keyin.airlineapi.aircraft;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.keyin.airlineapi.airport.Airport;
+import com.keyin.airlineapi.passenger.Passenger;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
@@ -15,9 +19,11 @@ public class Aircraft {
     private String airlineName;
     private int numberOfPassengers;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "aircraft")
     private List<Passenger> passengers;
 
+    @JsonIgnore
     @ManyToMany
     private List<Airport> airports;
 

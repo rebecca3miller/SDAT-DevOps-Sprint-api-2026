@@ -1,5 +1,6 @@
-package com.example.airlineapi.entity;
+package com.keyin.airlineapi.city;
 
+import com.keyin.airlineapi.airport.Airport;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

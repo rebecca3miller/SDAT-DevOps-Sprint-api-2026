@@ -1,7 +1,5 @@
-package com.example.airlineapi.controller;
+package com.keyin.airlineapi.city;
 
-import com.example.airlineapi.entity.City;
-import com.example.airlineapi.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;

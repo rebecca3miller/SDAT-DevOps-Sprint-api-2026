@@ -1,6 +1,5 @@
-package com.example.airlineapi.repository;
+package com.keyin.airlineapi.airport;
 
-import com.example.airlineapi.entity.Airport;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,28 +1,33 @@
-package com.example.airlineapi.entity;
+package com.keyin.airlineapi.airport;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.keyin.airlineapi.aircraft.Aircraft;
+import com.keyin.airlineapi.city.City;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
 @Entity
-public class Passenger {
+public class Airport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
+    private String name;
+    private String code;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
 
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(mappedBy = "airports")
     private List<Aircraft> aircraft;
 
-    public Passenger() {
+    public Airport() {
     }
 
     public Long getId (){
@@ -33,28 +38,20 @@ public class Passenger {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getCode() {
+        return code;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public City getCity() {
@@ -72,5 +69,4 @@ public class Passenger {
     public void setAircraft(List<Aircraft> aircraft) {
         this.aircraft = aircraft;
     }
-
 }
